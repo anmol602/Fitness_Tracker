@@ -1,0 +1,211 @@
+
+@import "tailwindcss";
+
+:root {
+  font-family: Inter, system-ui, sans-serif;
+  color: #f5f7f5;
+  background: #080b09;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: #b7ff4a;
+  color: #080b09;
+}
+
+/* ===== Auth pages: prevent white autofill flash on dark UI ===== */
+.auth-dark {
+  color-scheme: dark;
+}
+
+.auth-dark input:-webkit-autofill,
+.auth-dark input:-webkit-autofill:hover,
+.auth-dark input:-webkit-autofill:focus,
+.auth-dark input:-webkit-autofill:active {
+  -webkit-text-fill-color: #f5f7f5 !important;
+  caret-color: #f5f7f5;
+  transition: background-color 9999s ease-out 0s;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+/* Poore app ka animated background */
+.page-bg {
+  position: relative;
+  background:
+    radial-gradient(900px 500px at 85% -10%, rgba(183, 255, 74, 0.14), transparent 60%),
+    radial-gradient(700px 500px at -10% 110%, rgba(183, 255, 74, 0.08), transparent 60%),
+    #070a07;
+  overflow: hidden;
+}
+/* halka grid pattern */
+.page-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(183, 255, 74, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(183, 255, 74, 0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, #000 30%, transparent 80%);
+  pointer-events: none;
+}
+/* tairta hua glow */
+.page-bg::after {
+  content: "";
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  top: 20%;
+  right: -120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(183, 255, 74, 0.16), transparent 70%);
+  filter: blur(40px);
+  animation: floatGlow 9s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes floatGlow {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-60px, 50px); }
+}
+.page-bg > * { position: relative; z-index: 1; }
+
+/* Glass card */
+.glass-card {
+  background: rgba(15, 22, 15, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(183, 255, 74, 0.15);
+  border-radius: 24px;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.glass-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(183, 255, 74, 0.4);
+  box-shadow: 0 18px 50px -20px rgba(183, 255, 74, 0.25);
+}
+
+/* ===== Dashboard light theme ===== */
+.dashboard[data-theme="light"] {
+  background-color: #f4f8ef;
+  color: #14200f;
+}
+
+.dashboard[data-theme="light"] .bg-\[\#080B08\] {
+  background-color: #f4f8ef;
+}
+
+.dashboard[data-theme="light"] .bg-\[\#101710\] {
+  background-color: #ffffff;
+}
+
+.dashboard[data-theme="light"] .bg-\[\#101710\]\/95 {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.dashboard[data-theme="light"] .bg-\[\#121A11\],
+.dashboard[data-theme="light"] .bg-\[\#0D120D\] {
+  background-color: #ffffff;
+}
+
+.dashboard[data-theme="light"] .bg-\[\#182016\],
+.dashboard[data-theme="light"] .hover\:bg-\[\#182016\]:hover {
+  background-color: #eaf2e1;
+}
+
+.dashboard[data-theme="light"] .bg-\[\#26391C\] {
+  background-color: #dbe6d0;
+}
+
+.dashboard[data-theme="light"] .border-\[\#26391C\] {
+  border-color: #d9e5ce;
+}
+
+.dashboard[data-theme="light"] .border-\[\#354D26\] {
+  border-color: #cfe0c0;
+}
+
+.dashboard[data-theme="light"] .divide-\[\#26391C\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: #e2ebd8;
+}
+
+.dashboard[data-theme="light"] .text-white {
+  color: #14200f;
+}
+
+.dashboard[data-theme="light"] .text-gray-200 {
+  color: #1f2937;
+}
+
+.dashboard[data-theme="light"] .text-gray-300 {
+  color: #374151;
+}
+
+.dashboard[data-theme="light"] .text-gray-400 {
+  color: #4b5563;
+}
+
+.dashboard[data-theme="light"] .text-gray-500 {
+  color: #6b7280;
+}
+
+.dashboard[data-theme="light"] .text-gray-600 {
+  color: #5b6653;
+}
+
+.dashboard[data-theme="light"] .text-\[\#B7FF4A\],
+.dashboard[data-theme="light"] .hover\:text-\[\#B7FF4A\]:hover,
+.dashboard[data-theme="light"] .group:hover .group-hover\:text-\[\#B7FF4A\] {
+  color: #4d7c0f;
+}
+
+.dashboard[data-theme="light"] .text-emerald-300 {
+  color: #047857;
+}
+
+.dashboard[data-theme="light"] .text-amber-300 {
+  color: #b45309;
+}
+
+.dashboard[data-theme="light"] .text-sky-300 {
+  color: #0369a1;
+}
+
+.dashboard[data-theme="light"] .text-violet-300 {
+  color: #6d28d9;
+}
+
+.dashboard[data-theme="light"] .text-orange-300 {
+  color: #c2410c;
+}
+
+.dashboard[data-theme="light"] .text-red-300 {
+  color: #b91c1c;
+}
+
+.dashboard[data-theme="light"] .hero-banner {
+  background-image: linear-gradient(135deg, #e7f4d8 0%, #f6fbf0 55%, #ffffff 100%);
+  border-color: #cfe1bf;
+}
+
+.dashboard[data-theme="light"] .\[color-scheme\:dark\] {
+  color-scheme: light;
+}
